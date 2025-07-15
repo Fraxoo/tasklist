@@ -1,6 +1,11 @@
 <?php
 
-
+$user = "root";
+$pass = "root";
+$bdd = new PDO('mysql:host=127.0.0.1;port=3306;dbname=app-database', $user, $pass);
+$test = $bdd->query("SELECT * FROM task");
+$task = $test->fetchAll();
+echo $task;
 
 ?>
 
