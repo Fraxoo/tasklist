@@ -30,6 +30,13 @@
         <h1>To do list</h1>
     </div>
 
+    <div class="add">
+        <form action="/" method="post">
+            <input type="text" name="addtask" placeholder="Ajoutez une tache :" required>
+            <button type="submit">Ajoutez</button>
+        </form>
+    </div>
+
     <div class="list">
         <input type="checkbox">
         <p>preparer le repas</p>

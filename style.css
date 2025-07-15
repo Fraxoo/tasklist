@@ -32,7 +32,7 @@ body{
 
 .matodo{
     text-align: center;
-    
+
 }
 
 .matodo p{
@@ -45,7 +45,27 @@ body{
     font-size: 4rem;
 }
 
+.add{
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.add input{
+    padding: 0.5rem 0;
+}
+
+.add button{
+    background: none;
+    border: none;
+    background-color: #ff5757;
+    color: white;
+    padding: 0.6rem 0.5rem;
+    cursor: pointer;
+}
+
 .list{
+    padding-top: 3rem;
     display: flex;
     gap: 1rem;
 }
