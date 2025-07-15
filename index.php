@@ -27,7 +27,7 @@ echo $task;
 
 <div class="connect">
     <a href="inscription.php">S'inscrire</a>
-    <a href="inscription.php">Se connecter</a>
+    <a href="connexion.php">Se connecter</a>
 </div>
 
 <div class="main">
