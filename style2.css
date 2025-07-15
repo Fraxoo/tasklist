@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background-color:#17a2b7;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.square{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    top: 50%;
+    left: 50%;
+    width: fit-content;
+    
+}
+
+.inscription{
+    padding: 1rem;
+    font-weight: bold;
+    
+}
+
+.login{
+    display: flex;
+    gap: 0.5rem;
+    width: 99%;
+}
+
+.deja,.inscription,.submit{
+    text-align: center;
+
+}
+
+.nom,.prenom,.mail,.password{
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 99%;
+    
+}
+
+.nom p,.prenom p,.mail p,.password {
+    padding: 8px 0;
+    
+}
+
+.submit{
+    
+    background-color: #17a2b7;
+    padding: 8px 0;
+    margin: 8px 0;
+    width: 100%;
+    
+}
+
+.submit a{
+    display: block;
+    color: white;
+    object-fit: cover;
+}
+
+.deja a{
+    color: #5c959e;
+}
+
+input{
+    width: 100%;
+    padding: 6px 0;
+}
