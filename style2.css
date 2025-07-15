@@ -9,7 +9,7 @@ a{
 }
 
 body{
-    background-color:hsl(196, 44%, 47%);
+    background-color:#bd83de;
     height: 100vh;
     
 }
@@ -83,7 +83,7 @@ body{
     font-size: 1.5rem;
     background: none;
     border: none;
-    background-color: hsl(196, 44%, 47%);
+    background-color: #bd83de;
     padding: 8px 0;
     margin: 1rem 0;
     width: 100%;
