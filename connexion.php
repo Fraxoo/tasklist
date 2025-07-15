@@ -16,6 +16,12 @@
 
 <body>
 
+<div class="all">
+
+    <div class="acceuil">
+        <a  href="index.php">Acceuil</a>  
+    </div>  
+    
 <div class="square">
 
     <form action="index.php" method="post">
@@ -41,7 +47,7 @@
     </div>
 
     <div class="submit">
-        <a href="connexion.php">S'inscrire</a>
+        <button type="submit">Se Connecter</button>
     </div>
 
     <div class="deja">
@@ -52,7 +58,7 @@
 
 </div>
 
-
+</div>
 
 </body>
 </html>

@@ -16,51 +16,58 @@
 
 <body>
 
-<div class="square">
+<div class="all">
 
-    <form action="index.php" method="post">
+        <div class="acceuil">
+            <a  href="index.php">Acceuil</a>  
+        </div>  
 
-    <div class="inscription">
-        <h2>INSCRIPTION</h2>
-    </div>
+    <div class="square">
 
-    <div class="login">
+        <form action="index.php" method="post">
 
-        <div class="nom">
-            <p>Nom</p>
-            <input type="text" name="nom" placeholder="Nom:">
+        <div class="inscription">
+            <h2>INSCRIPTION</h2>
         </div>
 
-        <div class="prenom">
-            <p>Prénom</p>
-            <input type="text" name="prenom" placeholder="Prénom">
+        <div class="login">
+
+            <div class="nom">
+                <p>Nom</p>
+                <input type="text" name="nom" placeholder="Nom:" required>
+            </div>
+
+            <div class="prenom">
+                <p>Prénom</p>
+                <input type="text" name="prenom" placeholder="Prénom" required>
+            </div>
+
+        </div>
+        
+        <div class="mail">
+            <p>Adresse mail</p>
+            <input type="email" name="mail" placeholder="Votre mail:">
         </div>
 
-    </div>
-    
-    <div class="mail">
-        <p>Adresse mail</p>
-        <input type="email" name="mail" placeholder="Votre mail:">
-    </div>
+        <div class="password">
+            <p>Mot de passe</p>
+            <input type="password" name="password" placeholder="Mot de Passe">
+        </div>
 
-    <div class="password">
-        <p>Mot de passe</p>
-        <input type="password" name="password" placeholder="Mot de Passe">
-    </div>
+        <div class="submit">
+            <button type="submit">S'inscrire</button>
+            
+        </div>
 
-    <div class="submit">
-        <a href="connexion.php">S'inscrire</a>
-    </div>
+        <div class="deja">
+            <p>Vous avez deja un compte ? <a href="connexion.php">Se connecter</a></p>
+        </div>
 
-    <div class="deja">
-        <p>Vous avez deja un compte ? <a href="connexion.php">Se connecter</a></p>
-    </div>
+        </form>
 
-    </form>
+    </div>
 
 </div>
-
-
 
 </body>
 </html>

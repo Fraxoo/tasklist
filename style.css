@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Luckiest Guy";
+}
+
+body{
+    background-image: url(Document\ To\ Do\ list\ beige\,\ rouge\ et\ violet\ mignon\ fleur.png);
+}
+
+.connect{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 0.3rem;
+}
+
+.connect a{
+    text-decoration: none;
+    color: #bd83de;
+    font-size: 1.5rem;
+    margin: 2rem 0rem;
+}
+
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.matodo{
+    text-align: center;
+    
+}
+
+.matodo p{
+    color: #bd83de;
+    font-size: 3rem;
+}
+
+.matodo h1{
+    color: #ff5757;
+    font-size: 4rem;
+}
+
+.list{
+    display: flex;
+    gap: 1rem;
+}

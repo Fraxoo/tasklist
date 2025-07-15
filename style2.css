@@ -9,11 +9,26 @@ a{
 }
 
 body{
-    background-color:#17a2b7;
+    background-color:hsl(196, 44%, 47%);
     height: 100vh;
+    
+}
+
+.all{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin: 3rem 0;
+}
+
+
+
+.acceuil a{
+    color: white;
+    font-size: 3rem;
 
 }
 
@@ -26,13 +41,14 @@ body{
     border-radius: 0.5rem;
     top: 50%;
     left: 50%;
-    width: fit-content;
+    flex-wrap: wrap;
     
 }
 
 .inscription{
     padding: 1rem;
     font-weight: bold;
+    font-size: 2rem;
     
 }
 
@@ -54,24 +70,24 @@ body{
     
 }
 
-.nom p,.prenom p,.mail p,.password {
+.nom p,.prenom p,.mail p,.password p {
     padding: 8px 0;
     
 }
 
-.submit{
-    
-    background-color: #17a2b7;
-    padding: 8px 0;
-    margin: 8px 0;
-    width: 100%;
-    
-}
 
-.submit a{
+.submit button{
     display: block;
     color: white;
     object-fit: cover;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    background-color: hsl(196, 44%, 47%);
+    padding: 8px 0;
+    margin: 1rem 0;
+    width: 100%;
+    cursor: pointer;
 }
 
 .deja a{
@@ -80,5 +96,7 @@ body{
 
 input{
     width: 100%;
-    padding: 6px 0;
+    padding: 1rem 0;
+    font-size: 1.3rem;
 }
+
