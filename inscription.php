@@ -27,19 +27,27 @@ $mail = $_POST['mail'];
 $password = $_POST['password'];
 
 if(isset($nom,$prenom,$mail,$password)){
-    if($mail == ['mail']){
-        echo "Adresse email deja utilisé";
+   $verifMail = $bdd->prepare("SELECT COUNT(*) FROM account WHERE mail = :mail");
+    $verifMail->execute(['mail' => $mail]);
+    $count = $verifMail->fetchColumn();
+
+    if($count > 0){
+        $used = "Adresse email déjà utilisée.";
+    }else{
+        if(isset($nom,$prenom,$mail,$password)){
+            $ajoutcompte = $bdd->prepare("INSERT INTO account(nom,prenom,mail,password) VALUES(:nom,:prenom,:mail,:password)");
+            $ajoutcompte->execute([
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'mail' => $mail,
+                'password' => $password
+            ]);
+        }
     }
+
 }
-if(isset($nom,$prenom,$mail,$password)){
-$ajoutcompte = $bdd->prepare("INSERT INTO account(nom,prenom,mail,password) VALUES(:nom,:prenom,:mail,:password)");
-$ajoutcompte->execute([
-    'nom' => $nom,
-    'prenom' => $prenom,
-    'mail' => $mail,
-    'password' => $password
-]);
-}
+
+
 
 ?>
 
@@ -85,7 +93,10 @@ $ajoutcompte->execute([
         </div>
         
         <div class="mail">
-            <p>Adresse mail</p>
+            <div class="used">
+                <p>Adresse mail</p>
+                <p class="red"><?=$used;?></p>
+            </div>
             <input type="email" name="mail" placeholder="Votre mail:">
         </div>
 
