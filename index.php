@@ -70,12 +70,16 @@ $taches = $tasks->fetchAll();
 
     <?php foreach($taches as $tache):?>
 
-    <div class="list">
-        <input type="checkbox">
-        <?php echo $tache['task']."\n"?>
+    <div class="taches">
+
+        <div class="list">
+            <input type="checkbox">
+            <?php echo $tache['task']."\n"?>
+        </div>
+        
+        <?php endforeach;?>
+
     </div>
-    
-    <?php endforeach;?>
 
 </div>
 
