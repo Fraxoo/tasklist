@@ -1,5 +1,9 @@
 <?php
+
 session_start();
+
+echo $_SESSION['id'];
+echo $_SESSION['nom'];
 
 $user = "root";
 $pass = "root";
@@ -22,9 +26,10 @@ $addtask = $_POST["addtask"];
 
 if(isset($addtask)){
 
-$insertask = $bdd->prepare('INSERT INTO task(task) VALUES (:task)');
+$insertask = $bdd->prepare('INSERT INTO task(task,acount_id) VALUES (:task,:acount_id)');
 $insertask->execute([
-    'task' => $addtask
+    'task' => $addtask,
+    'acount_id' => $_SESSION['id']
 ]);
 }
 
@@ -51,10 +56,17 @@ $taches = $tasks->fetchAll();
 
 <body>
 
+<?php if(!isset($_SESSION['id'])):?>
 <div class="connect">
     <a href="inscription.php">S'inscrire</a>
     <a href="connexion.php">Se connecter</a>
 </div>
+<?php else :?>
+<div class="utilisateur">
+    <p>Bonjour
+</div>
+
+<?php endif ?>
 
 <div class="main">
     <div class="matodo">

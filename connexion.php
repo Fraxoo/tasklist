@@ -2,7 +2,7 @@
 
 session_start();
 
-$_SESSION['account'];
+
 
 $user = "root";
 $pass = "root";
@@ -25,16 +25,20 @@ if (isset($_POST['mail'], $_POST['password'])) {
     $mail = $_POST['mail'];
     $password = $_POST['password'];
 
-    $stmt = $bdd->prepare("SELECT id FROM account WHERE mail = :mail AND password = :password");
+    $stmt = $bdd->prepare("SELECT id, nom FROM account WHERE mail = :mail AND password = :password");
     $stmt->execute([
         'mail' => $mail,
         'password' => $password
     ]);
 
     $user = $stmt->fetch();
+    
 
     if ($user) {
-        echo "connexion reussi";
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['nom'] = $user['nom'];
+        header("location: http://localhost:8000/index.php");
+        exit();
     } else {
         echo "Email ou mot de passe incorrect.";
     }
