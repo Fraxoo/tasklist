@@ -2,11 +2,10 @@
 
 session_start();
 
-$_SESSION['login'];
+$_SESSION['account'];
 
 $user = "root";
 $pass = "root";
-
 try
 
 {
@@ -21,13 +20,25 @@ catch (Exception $e)
 
 }
 
+if (isset($_POST['mail'], $_POST['password'])) {
 
-$mail = $_POST['mail'];
-$password = $_POST['password'];
+    $mail = $_POST['mail'];
+    $password = $_POST['password'];
 
-if(isset($mail,$password)){
-    
-};
+    $stmt = $bdd->prepare("SELECT id FROM account WHERE mail = :mail AND password = :password");
+    $stmt->execute([
+        'mail' => $mail,
+        'password' => $password
+    ]);
+
+    $user = $stmt->fetch();
+
+    if ($user) {
+        echo "connexion reussi";
+    } else {
+        echo "Email ou mot de passe incorrect.";
+    }
+}
 
 
 ?>
@@ -53,7 +64,7 @@ if(isset($mail,$password)){
     
 <div class="square">
 
-    <form action="index.php" method="post">
+    <form action="connexion.php" method="post">
 
     <div class="inscription">
         <h2>CONNEXION</h2>

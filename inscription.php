@@ -2,8 +2,6 @@
 
 session_start();
 
-$_SESSION['login'];
-
 $user = "root";
 $pass = "root";
 
