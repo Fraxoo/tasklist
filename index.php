@@ -2,10 +2,35 @@
 
 $user = "root";
 $pass = "root";
+
+try
+
+{
 $bdd = new PDO('mysql:host=127.0.0.1;port=3306;dbname=app-database', $user, $pass);
-$test = $bdd->query("SELECT * FROM task");
-$task = $test->fetchAll();
-echo $task;
+}
+
+catch (Exception $e)
+
+{
+
+    die('Erreur : ' . $e->getMessage());
+
+}
+
+$addtask = $_POST["addtask"];
+
+if(isset($addtask)){
+
+$insertask = $bdd->prepare('INSERT INTO task(task) VALUES (:task)');
+$insertask->execute([
+    'task' => $addtask
+]);
+}
+
+$tasks = $bdd->query('SELECT * FROM task');
+$tasks->execute();
+$taches = $tasks->fetchAll();
+
 
 ?>
 
@@ -43,11 +68,15 @@ echo $task;
         </form>
     </div>
 
+    <?php foreach($taches as $tache):?>
+
     <div class="list">
         <input type="checkbox">
-        <p>preparer le repas</p>
+        <?php echo $tache['task']."\n"?>
     </div>
     
+    <?php endforeach;?>
+
 </div>
 
 </body>
