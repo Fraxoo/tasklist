@@ -1,5 +1,45 @@
 <?php
 
+session_start();
+
+$_SESSION['login'];
+
+$user = "root";
+$pass = "root";
+
+try
+
+{
+$bdd = new PDO('mysql:host=127.0.0.1;port=3306;dbname=app-database', $user, $pass);
+}
+
+catch (Exception $e)
+
+{
+
+    die('Erreur : ' . $e->getMessage());
+
+}
+
+$nom = $_POST['nom'];
+$prenom = $_POST['prenom'];
+$mail = $_POST['mail'];
+$password = $_POST['password'];
+
+if(isset($nom,$prenom,$mail,$password)){
+    if($mail == ['mail']){
+        echo "Adresse email deja utilisé";
+    }
+}
+if(isset($nom,$prenom,$mail,$password)){
+$ajoutcompte = $bdd->prepare("INSERT INTO account(nom,prenom,mail,password) VALUES(:nom,:prenom,:mail,:password)");
+$ajoutcompte->execute([
+    'nom' => $nom,
+    'prenom' => $prenom,
+    'mail' => $mail,
+    'password' => $password
+]);
+}
 
 ?>
 
@@ -24,14 +64,14 @@
 
     <div class="square">
 
-        <form action="index.php" method="post">
+        <form action="inscription.php" method="post">
 
         <div class="inscription">
             <h2>INSCRIPTION</h2>
         </div>
 
         <div class="login">
-
+            
             <div class="nom">
                 <p>Nom</p>
                 <input type="text" name="nom" placeholder="Nom:" required>
@@ -58,6 +98,8 @@
             <button type="submit">S'inscrire</button>
             
         </div>
+        
+        
 
         <div class="deja">
             <p>Vous avez deja un compte ? <a href="connexion.php">Se connecter</a></p>

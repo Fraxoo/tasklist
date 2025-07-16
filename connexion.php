@@ -1,5 +1,34 @@
 <?php
 
+session_start();
+
+$_SESSION['login'];
+
+$user = "root";
+$pass = "root";
+
+try
+
+{
+$bdd = new PDO('mysql:host=127.0.0.1;port=3306;dbname=app-database', $user, $pass);
+}
+
+catch (Exception $e)
+
+{
+
+    die('Erreur : ' . $e->getMessage());
+
+}
+
+
+$mail = $_POST['mail'];
+$password = $_POST['password'];
+
+if(isset($mail,$password)){
+    
+};
+
 
 ?>
 
