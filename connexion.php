@@ -23,27 +23,22 @@ catch (Exception $e)
 if (isset($_POST['mail'], $_POST['password'])) {
 
     $mail = $_POST['mail'];
-    $password = $_POST['password'];
+    $pass = $_POST['password'];
 
-    $stmt = $bdd->prepare("SELECT id, nom FROM account WHERE mail = :mail AND password = :password");
-    $stmt->execute([
-        'mail' => $mail,
-        'password' => $password
-    ]);
+    $stmt = $bdd->prepare("SELECT id, nom, password FROM account WHERE mail = :mail");
+    $stmt->execute(['mail' => $mail]);
 
-    $user = $stmt->fetch();
-    
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user) {
+    if ($user && password_verify($pass, $user['password'])) {
         $_SESSION['id'] = $user['id'];
         $_SESSION['nom'] = $user['nom'];
-        header("location: http://localhost:8000/index.php");
+        header("Location: index.php");
         exit();
     } else {
         $erreur = "Email ou mot de passe incorrect";
     }
 }
-
 
 ?>
 

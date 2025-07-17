@@ -22,7 +22,9 @@ catch (Exception $e)
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
 $mail = $_POST['mail'];
-$password = $_POST['password'];
+$pass = $_POST['password'];
+$password = password_hash($pass,PASSWORD_BCRYPT);
+
 
 if(isset($nom,$prenom,$mail,$password)){
    $verifMail = $bdd->prepare("SELECT COUNT(*) FROM account WHERE mail = :mail");
