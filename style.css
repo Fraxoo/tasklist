@@ -23,6 +23,33 @@ body{
 }
 
 
+
+.deco{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem ;
+}
+
+.deco a{
+    text-decoration: none;
+    color: #bd83de;
+    font-size: 2rem;
+    justify-content: flex-end;
+}
+
+.utilisateur{
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+    text-align: center;
+    align-items: center;
+}
+
+.utilisateur p{
+    color: #ff5757;
+    font-size: 5rem;
+}
+
 .main{
     display: flex;
     justify-content: center;
