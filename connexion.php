@@ -40,7 +40,7 @@ if (isset($_POST['mail'], $_POST['password'])) {
         header("location: http://localhost:8000/index.php");
         exit();
     } else {
-        echo "Email ou mot de passe incorrect.";
+        $erreur = "Email ou mot de passe incorrect";
     }
 }
 
@@ -91,6 +91,7 @@ if (isset($_POST['mail'], $_POST['password'])) {
     </div>
 
     <div class="submit">
+        <p><?=$erreur?></p>
         <button type="submit">Se Connecter</button>
     </div>
 

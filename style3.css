@@ -90,6 +90,11 @@ body{
     cursor: pointer;
 }
 
+.submit p{
+    color: red;
+    margin-top: 1rem;
+}
+
 .deja a{
     color: #5c959e;
 }
