@@ -24,11 +24,19 @@ if (isset($addtask)) {
         'acount_id' => $_SESSION['id']
     ]);
 }
+if (isset($_POST['check'])) {
+foreach ($_POST['check'] as $checkid) {
+$del = $bdd->prepare('DELETE FROM task WHERE id = :id AND acount_id = :acount_id');
+$del->execute([
+   'id' => $checkid,
+   'acount_id' => $_SESSION['id']
+]);
+}
+}
 
 $tasks = $bdd->query('SELECT * FROM task');
 $tasks->execute();
 $taches = $tasks->fetchAll();
-
 
 
 
@@ -58,15 +66,15 @@ $taches = $tasks->fetchAll();
         </div>
     <?php else : ?>
 
-        
-            
-            <div class="utilisateur">
-                <p>Bonjour <?= $_SESSION['nom']; ?></p>
-            </div>
-            <div class="deco">
-                <a href="deconnexion.php">Se Deconnecter</a>
-            </div>
-        
+
+
+        <div class="utilisateur">
+            <p>Bonjour <?= $_SESSION['nom']; ?></p>
+        </div>
+        <div class="deco">
+            <a href="deconnexion.php">Se Deconnecter</a>
+        </div>
+
     <?php endif ?>
 
     <div class="main">
@@ -86,24 +94,38 @@ $taches = $tasks->fetchAll();
 
             <?php if ($_SESSION['id'] == $tache['acount_id']) : ?>
 
-                <div class="taches">
+                <form action="/" method="post">
 
-                    <div class="list">
-                        <input type="checkbox">
-                        <?php echo $tache['task'] . "\n" ?>
-                    </div>
 
-                <?php endif ?>
+                        <div class="list">
 
-            <?php endforeach; ?>
+                            <input type="checkbox" name="check[]" value=<?php echo $tache['id']?>>
+                            <?php echo $tache['task'] . "\n" ?>
+                        </div>
 
-                </div>
-            
+                
+            <?php endif ?>
 
+        <?php endforeach; ?>
+
+
+        <div class="delete">
+            <button type="submit">Suprimer tache</button>
+        </div>
+
+
+        </form>
     </div>
 
 
-   
+
+
+    
+
+
+
+
+
 </body>
 
 </html>
